@@ -12,8 +12,8 @@ let currentText = [];
 let letters = [];
 let iterationNumberForLetter = [];
 let iterationNum = 0;
-let characters = "ABCEFHIJKLMNOPQSUXYZabcefghijlmnoprstuwxyz0124679!?.,[}]}/$%&*@':)<> ";
-let swapSpeed = 50; // Speed of letter swaps in milliseconds
+let characters = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz0123446789!?.,[}]}/$%&*@':)<> ";
+let swapSpeed = 70; // Speed of letter swaps in milliseconds
 let textComplete;
 let draggingLetter = null;
 
@@ -31,7 +31,7 @@ function preload() {
 function setup() {
   canvas = createCanvas(windowWidth = window.innerWidth, windowHeight = window.innerHeight);
   canvas.style('z-index','-1');
-
+  canvas.position(0,0);
   textComplete = false;
   textFont(outfitFont);
   textAlign(CENTER, CENTER); // Align text to center both horizontally and vertically
@@ -47,7 +47,7 @@ function setup() {
 
 
 function draw() {
-  background(210);
+  background(240);
 
   let textSizeValue = min(windowWidth, windowHeight) * 0.08; 
   textSize(textSizeValue);
@@ -94,13 +94,18 @@ if(textComplete == true) {
     // Draw the letter at its new position
     fill('orange');
     text(letter.char, letter.x, letter.y);
+    textAlign(CENTER, CENTER);
   }
 
 
 
 
 } else {
-  text(currentText.join(""), windowWidth / 2, windowHeight / 2);
+
+  let centerX = windowWidth / 2;
+  let centerY = windowHeight / 2;
+
+  text(currentText.join(""), centerX, centerY);
   fill('orange');
 }
 
@@ -111,7 +116,18 @@ if(textComplete == true) {
 }
 
 
+function reCenterText() {
 
+  for (let i = 0; i < targetText.length; i++) {
+
+    let xPos = windowWidth / 2 - textWidth(targetText) / 2;
+    letters[i].originalX = xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2;
+
+    letters[i].originalY = height / 2;
+
+  }
+
+}
 
 
 
@@ -119,6 +135,7 @@ function windowResized() {
   windowWidth = window.innerWidth;
   windowHeight = window.innerHeight;
   resizeCanvas(windowWidth, windowHeight);
+  reCenterText();
 }
 
 function swapLetters() {
