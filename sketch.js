@@ -17,6 +17,8 @@ let swapSpeed = 70; // Speed of letter swaps in milliseconds
 let textComplete;
 let draggingLetter = null;
 
+let colours = ['orange', 'red','purple', 'teal','white'];
+
 
 let wobbleAmount = 1.2; // How much each letter wobbles
 let speed = 0.08; // Speed of wobbling
@@ -75,6 +77,13 @@ if(textComplete == true) {
     // If the cursor is within the repulsion distance, push the letter away
       
     if (d < repulsionDistance) {
+
+      /*
+      letter.colour = colours[floor(random(0,colours.length-1))];
+      console.log(letter.colour);
+      //Can activate for colour randomization per hit.
+      */
+
       // Calculate the direction from the letter to the mouse
       let angle = atan2(letter.y - mouseY, letter.x - mouseX);
       
@@ -87,12 +96,14 @@ if(textComplete == true) {
       letter.y = lerp(letter.y, targetY, smoothness);
     } else {
       // If the letter is not close to the cursor, return to its original position smoothly
+      
       letter.x = lerp(letter.x, letter.originalX, smoothness);
       letter.y = lerp(letter.y, letter.originalY, smoothness);
+      
     }
     
     // Draw the letter at its new position
-    fill('orange');
+    fill(letter.colour);
     text(letter.char, letter.x, letter.y);
     textAlign(CENTER, CENTER);
   }
@@ -177,7 +188,8 @@ function checkTextForCompletion() {
         y: height / 2,
         originalX: xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2,
         originalY: height / 2,
-        dragging: false
+        dragging: false,
+        colour: 'orange'
       });
     }
     textComplete = true;
@@ -200,7 +212,7 @@ function randomNumber() {
 function mousePressed() {
 
   if(textComplete) {
-    for (let i = 0; i < letters.length; i++) {
+   /* for (let i = 0; i < letters.length; i++) {
       let letter = letters[i];
       // Check if mouse is over the letter
       let letterWidth = textWidth(letter.char);
@@ -216,6 +228,7 @@ function mousePressed() {
         break;
       }
     }
+      */
 }
 }
 
