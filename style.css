@@ -1,8 +1,17 @@
 html, body {
   margin: 0;
   padding: 0;
+
+  height: 100%;
+  margin: 0;
+  /*overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 canvas {
-  display: block;
+  display: block; /* Ensure canvas is treated as a block element */
+  margin: 0 auto; /* Optional: center the canvas horizontally */
+}
+
+.extra-content {
+  height: 2000px;
 }
