@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>Home</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -17,36 +17,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
-    <div id="header">
-      <div>
-      <img src="assets/logo2.png" alt="logo" id="header-logo">
-      </div>
+    <div id="header-container"></div>
 
-      <h1></h1>
-      <div class="header-links">
-        <div>
-          <a href="#about-me">
-        About Me 
-          </a>
-        </div>
-        <div>
-          Works
-        </div>
-
-      </div>
-      <div class="header-links">
-        <div>
-          Skills 
-        </div>
-        <div>
-          Contact 
-        </div>
-      </div>
-    </div>
+    <script>
+        // Load the header.html into the header-container div
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 
     <div id="js-area">
      <script src="sketch.js"></script>
@@ -60,10 +45,40 @@
     
     <section id="works" class="section">
       <div class="works-section">
-        I'm a designer and software developer based in Melbourne, Australia. <br><br>
+
+        <div class="grid-item">
+          <a href="arty.html" >
+            <div class="grid-overlay">arty</div>
+            <img src="assets/testImage.png" alt="Image 1" class="square" />     
+          </a>
+        </div>
+
+        <div class="grid-item">
+          <a href="arty.html" >
+            <div class="grid-overlay">angel</div>
+            <img src="assets/testImage.png" alt="Image 1" class="square" />     
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="arty.html" >
+            <div class="grid-overlay">Arty</div>
+            <img src="assets/testImage.png" alt="Image 1" class="square" />     
+          </a>
+        </div>
       </div>
     </section>
 
+    <section id="footer" class="section">
+      <div class="footer-container">
+      
+        <div class="footer-links">
+        
+        </div>
+        <div class="footer-social">
+    
+        </div>
+      </div>
+    </section>
     
   </body>
 
