@@ -83,7 +83,7 @@ if(textComplete == true) {
     
     // If the cursor is within the repulsion distance, push the letter away
       
-    if (d < repulsionDistance) {
+    if (d < repulsionDistance ) {
 
       /*
       letter.colour = colours[floor(random(0,colours.length-1))];
@@ -95,8 +95,8 @@ if(textComplete == true) {
       let angle = atan2(letter.y - mouseY, letter.x - mouseX);
       
       // Calculate the target position away from the mouse
-      let targetX = letter.originalX + cos(angle) * pushForce;
-      let targetY = letter.originalY + sin(angle) * pushForce;
+      let targetX = letter.x + cos(angle) * pushForce;
+      let targetY = letter.y + sin(angle) * pushForce;
       
       // Smoothly interpolate towards the target position using lerp()
       letter.x = lerp(letter.x, targetX, smoothness);
