@@ -293,11 +293,14 @@ window.addEventListener("scroll", function () {
   
   if (currentScrollY > lastScrollY) {
     // User is scrolling down → Jumble text
-    
+    jumbleCounter++;
     jumbleText();
   } else {
     // User is scrolling up → Reset text
+    jumbleCounter--;
+    if(jumbleCounter == 0) {
     resetText();
+    }
   }
 
   if(lastScrollY == originalScrollY) {
@@ -309,7 +312,7 @@ window.addEventListener("scroll", function () {
 });
 
 function jumbleText() {
-  jumbleCounter++;
+
 
   if(!jumbling) {
   for (let i = 0; i < letters.length; i++) {
@@ -322,14 +325,21 @@ function jumbleText() {
 
     //console.log("lettersX: " + letters[i].targetX);
   }
+ 
 }
+
   jumbling = true;
 }
 
 function resetText() {
+
+
+
   for (let i = 0; i < letters.length; i++) {
 
       letters[i].targetX = letters[i].originalX; // Restore X
       letters[i].targetY = letters[i].originalY;  // Restore Y
   }
+  jumbleCounter = 0;
+  
 }
