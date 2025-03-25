@@ -38,3 +38,20 @@ canvas {
 
 
 }
+
+#js-area {
+ 
+  min-height: 100vh;
+
+}
+
+.about-section {
+
+margin: auto;
+float: center;
+text-align: center;
+font-family: "Outfit", sans-serif;
+width: 500px;
+padding: 20px;
+
+}

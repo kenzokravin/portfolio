@@ -17,13 +17,20 @@ let swapSpeed = 70; // Speed of letter swaps in milliseconds
 let textComplete;
 let draggingLetter = null;
 
+
 let colours = ['orange', 'red','purple', 'teal','white'];
 
 
 let wobbleAmount = 1.2; // How much each letter wobbles
 let speed = 0.08; // Speed of wobbling
+let lastScrollY = window.scrollY;
+let originalScrollY = window.scrollY;
+
+let jumbling;
+let jumbleCounter = 0;
 
 let canvas;
+let bgColour;
 
 function preload() {
  outfitFont = loadFont('assets/Outfit-Medium.ttf');
@@ -32,8 +39,13 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(windowWidth = window.innerWidth, windowHeight = window.innerHeight);
-  canvas.style('z-index','-1');
+  canvas.style('z-index','0');
   canvas.position(0,0);
+  canvas.parent('js-area');
+
+  jumbling = false;
+  bgColour = color(240);
+  
   textComplete = false;
   textFont(outfitFont);
   textAlign(CENTER, CENTER); // Align text to center both horizontally and vertically
@@ -49,19 +61,14 @@ function setup() {
 
 
 function draw() {
-  background(240);
+  background(bgColour);
+  document.body.style.backgroundColor = bgColour;
 
   let textSizeValue = min(windowWidth, windowHeight) * 0.08; 
   textSize(textSizeValue);
-  //circle in the center with a width of 100
+ 
 
 if(textComplete == true) {
- // for (let i = 0; i < letters.length; i++) {
-//    let letter = letters[i];
- //   fill('orange');
-//    text(letter.char, letter.x, letter.y);
- // }
-
 
     if(draggingLetter && draggingLetter.dragging == false) {
  //   moveBackToPosition();
@@ -94,11 +101,25 @@ if(textComplete == true) {
       // Smoothly interpolate towards the target position using lerp()
       letter.x = lerp(letter.x, targetX, smoothness);
       letter.y = lerp(letter.y, targetY, smoothness);
+
+      //scale(2);
+
     } else {
       // If the letter is not close to the cursor, return to its original position smoothly
       
-      letter.x = lerp(letter.x, letter.originalX, smoothness);
-      letter.y = lerp(letter.y, letter.originalY, smoothness);
+      if(jumbling) {
+
+        letter.x = lerp(letter.x, letter.targetX, smoothness);
+        letter.y = lerp(letter.y, letter.targetY, smoothness);
+
+      } else {
+        letter.x = lerp(letter.x, letter.originalX, smoothness);
+        letter.y = lerp(letter.y, letter.originalY, smoothness);
+      }
+
+     
+
+     // scale(0.5);
       
     }
     
@@ -188,6 +209,8 @@ function checkTextForCompletion() {
         y: height / 2,
         originalX: xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2,
         originalY: height / 2,
+        previousX: xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2,
+        previousY: height / 2,
         dragging: false,
         colour: 'orange'
       });
@@ -256,13 +279,57 @@ function mouseDragged() {
 // Return the letter to its original position upon mouse release
 function mouseReleased() {
   if (draggingLetter) {
-
-
-
-
     //draggingLetter.x = draggingLetter.originalX;  // Reset to original position
     //draggingLetter.y = draggingLetter.originalY;
     draggingLetter.dragging = false;
     
+  }
+}
+
+
+window.addEventListener("scroll", function () {
+  let currentScrollY = window.scrollY;
+
+  
+  if (currentScrollY > lastScrollY) {
+    // User is scrolling down → Jumble text
+    
+    jumbleText();
+  } else {
+    // User is scrolling up → Reset text
+    resetText();
+  }
+
+  if(lastScrollY == originalScrollY) {
+    jumbling = false;
+    console.log("unjumbled");
+  }
+
+  lastScrollY = currentScrollY; // Update last scroll position
+});
+
+function jumbleText() {
+  jumbleCounter++;
+
+  if(!jumbling) {
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].previousX = letters[i].x; 
+    letters[i].previousY = letters[i].y;
+
+
+    letters[i].targetX = random(windowWidth); // Random X position
+    letters[i].targetY =  random(windowHeight);  // Random Y position
+
+    //console.log("lettersX: " + letters[i].targetX);
+  }
+}
+  jumbling = true;
+}
+
+function resetText() {
+  for (let i = 0; i < letters.length; i++) {
+
+      letters[i].targetX = letters[i].originalX; // Restore X
+      letters[i].targetY = letters[i].originalY;  // Restore Y
   }
 }
