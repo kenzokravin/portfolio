@@ -3,7 +3,7 @@ html, body {
   padding: 0;
 
   height: 100%;
-  margin: 0;
+  /* margin: 0; */
   /*overflow-y: scroll; /* Enable vertical scrolling */
 }
 
@@ -22,19 +22,61 @@ canvas {
   left: 0;
   width: 100%; /* Full width */
   background: rgba(255, 255, 255, 0.0); /* Transparent white background */
-  color: white;
+ 
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   z-index: 1000; /* Make sure it stays on top of other elements */
-  /*backdrop-filter: blur(5px); /* Optional: add blur effect behind the header */
+  /*backdrop-filter: blur(10px); /* Optional: add blur effect behind the header */
+  /* -webkit-mask: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
+ 
+}
+
+#header > * {
+  position: relative; /* Bring the content above the blurred background */
+  z-index: 1; /* Ensure content appears above the blurred background */
+}
+.header-links {
+  text-align: left;
+  float: left;
+  margin-left: 250px;
+  color:black;
+  font-family: "Courier Prime", monospace;
+  padding-top: 0px;
+  font-weight: bold;
+  font-size: 12px;
+  mix-blend-mode: screen; 
+}
+
+.header-links a{
+  text-decoration: none;
+  color: black;
+  mix-blend-mode: screen; 
+}
+
+.active-box {
+
+
+}
+
+/* Ensure sections take up full width and display vertically */
+.section {
+  width: 100%;
+  display: block; /* Default value, ensures vertical flow */
+  margin-bottom: 20px; /* Optional: adds space between sections */
+}
+
+.about-section,
+.works-section {
+  padding: 20px;
+  font-size: 1.2rem;
 }
 
 #header-logo {
-  padding-top: 20px;
+  padding-top: 0px;
   padding-left: 30px;
   float: left;
-  height: 75px;
-  width: 75px;
+  height: 60px;
+  width: 60px;
 
 
 }
@@ -45,13 +87,32 @@ canvas {
 
 }
 
-.about-section {
 
+
+
+.about-section {
 margin: auto;
-float: center;
-text-align: center;
+text-align: left;
 font-family: "Outfit", sans-serif;
-width: 500px;
-padding: 20px;
+font-size: 36px;
+width: 700px;
+padding: 50px;
+padding-top: 5%;
+padding-left: 10%;
+
+opacity: 0; /* Initially hidden */
+ transform: translateY(30px); 
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-section.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+.works-section {
+
+  display: flex;
+
 
 }

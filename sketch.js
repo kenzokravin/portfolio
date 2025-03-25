@@ -4,7 +4,7 @@ let outfitFont;
 
 
 let pushForce = 40; // Force applied when cursor comes in contact with the letter
-let repulsionDistance = 20; // Distance at which the letter starts to be pushed away
+let repulsionDistance = 30; // Distance at which the letter starts to be pushed away
 let smoothness = 0.1; // Smoothness of the push (1.0 for instant, 0 for no movement)
 
 let targetText = "<hello, i'm angus :)>";
@@ -102,6 +102,8 @@ if(textComplete == true) {
       letter.x = lerp(letter.x, targetX, smoothness);
       letter.y = lerp(letter.y, targetY, smoothness);
 
+      let targetRotation = angle + HALF_PI; // Rotate the letter based on direction
+      letter.rotation = lerp(letter.rotation, targetRotation, smoothness);
       //scale(2);
 
     } else {
@@ -115,6 +117,7 @@ if(textComplete == true) {
       } else {
         letter.x = lerp(letter.x, letter.originalX, smoothness);
         letter.y = lerp(letter.y, letter.originalY, smoothness);
+      //
       }
 
      
@@ -211,6 +214,7 @@ function checkTextForCompletion() {
         originalY: height / 2,
         previousX: xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2,
         previousY: height / 2,
+        rotation: 0, 
         dragging: false,
         colour: 'orange'
       });
@@ -291,22 +295,22 @@ window.addEventListener("scroll", function () {
   let currentScrollY = window.scrollY;
 
   
-  if (currentScrollY > lastScrollY) {
-    // User is scrolling down → Jumble text
-    jumbleCounter++;
-    jumbleText();
-  } else {
-    // User is scrolling up → Reset text
-    jumbleCounter--;
-    if(jumbleCounter == 0) {
-    resetText();
-    }
-  }
+  // if (currentScrollY > lastScrollY) {
+  //   // User is scrolling down → Jumble text
+  //   jumbleCounter++;
+  //   jumbleText();
+  // } else {
+  //   // User is scrolling up → Reset text
+  //   jumbleCounter--;
+  //   if(jumbleCounter == 0) {
+  //   resetText();
+  //   }
+  // }
 
-  if(lastScrollY == originalScrollY) {
-    jumbling = false;
-    console.log("unjumbled");
-  }
+  // if(lastScrollY == originalScrollY) {
+  //   jumbling = false;
+  //   console.log("unjumbled");
+  // }
 
   lastScrollY = currentScrollY; // Update last scroll position
 });
@@ -340,6 +344,26 @@ function resetText() {
       letters[i].targetX = letters[i].originalX; // Restore X
       letters[i].targetY = letters[i].originalY;  // Restore Y
   }
+
+
+
   jumbleCounter = 0;
   
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let aboutSection = document.querySelector(".about-section");
+
+  function checkScroll() {
+    let sectionPosition = aboutSection.getBoundingClientRect().top;
+    let screenPosition = window.innerHeight / 1.2;
+
+    if (sectionPosition < screenPosition) {
+      aboutSection.classList.add("show");
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); // Run on load
+});
