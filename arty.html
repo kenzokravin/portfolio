@@ -4,10 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Arty</title>
+    <title>Project Arty</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-32x32.png">
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
+    
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@<v0.174.0>/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@<v0.174.0>/examples/jsm/"
+        }
+      }
+    </script>
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +31,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
+
 <body>
   <div id="header-container"></div>
 
@@ -35,6 +48,16 @@
 
 
     <div id="js-area">
-        <script src="sketch_arty.js"></script>
+        
    </div>
+
+   <section id="about-me" class="section">
+    <div class="about-section">
+      I'm a designer and software developer based in Melbourne, Australia. <br><br>
+    </div>
+  </section>
   </body>
+
+  <script type="module" src="sketch_arty_three.js"></script>
+
+  </html>

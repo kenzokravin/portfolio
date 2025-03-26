@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
 
+
   height: 100%;
   /* margin: 0; */
   /*overflow-y: scroll; /* Enable vertical scrolling */
@@ -22,21 +23,24 @@ canvas {
   left: 0;
   width: 100%; /* Full width */
   background: rgba(255, 255, 255, 0.0); /* Transparent white background */
- 
+
   text-align: center;
+  color:black;
   padding: 15px;
-  z-index: 1000; /* Make sure it stays on top of other elements */
+  z-index: 1; /* Make sure it stays on top of other elements */
   /*backdrop-filter: blur(10px); /* Optional: add blur effect behind the header */
   /* -webkit-mask: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
- 
+
 }
 
 #header > * {
   position: relative; /* Bring the content above the blurred background */
-  z-index: 1; /* Ensure content appears above the blurred background */
+ /* Ensure content appears above the blurred background */
 }
 .header-links {
+  justify-content: center;
   text-align: left;
+ padding: 5px;
   float: left;
   margin-left: 15%;
   color:black;
@@ -44,13 +48,32 @@ canvas {
   padding-top: 0px;
   font-weight: bold;
   font-size: 12px;
-  mix-blend-mode: screen; 
+
+  mix-blend-mode: difference;
+
+
+  border-radius: 10%;
+
+ 
 }
+
+.header-pre {
+  
+  background-color: black;
+  mix-blend-mode: difference;
+
+}
+
+.header-links ::before {
+
+}
+
 
 .header-links a{
   text-decoration: none;
   color: black;
-  mix-blend-mode: screen; 
+  
+ 
 }
 
 .header-social-links {

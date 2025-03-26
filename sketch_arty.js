@@ -1,20 +1,20 @@
-let windowHeight = window.innerHeight;
-let windowWidth = window.innerWidth;
-let outfitFont;
-
-
-
-
-let canvas;
-let bgColour;
+let objectModel;
 
 function preload() {
  outfitFont = loadFont('assets/Outfit-Medium.ttf');
+ objectModel = loadModel('assets/sheetTable.obj', true, () => {
+  console.log("Model loaded successfully!");
+}, (err) => {
+  console.error("Error loading model:", err);
+});
 }
 
 
 function setup() {
-  canvas = createCanvas(windowWidth = window.innerWidth, windowHeight = window.innerHeight);
+  windowHeight = window.innerHeight;
+
+
+  canvas = createCanvas(window.innerWidth,  window.innerHeight,WEBGL);
   canvas.style('z-index','0');
   canvas.position(0,0);
   canvas.parent('js-area');
@@ -23,12 +23,7 @@ function setup() {
   
  
   //Initializing random letters.
-  for (let i = 0; i < targetText.length; i++) {
-    currentText[i] = randomCharacter();
-    iterationNumberForLetter[i] = randomNumber();
-  }
-
-  setInterval(swapLetters, swapSpeed);
+ 
 }
 
 
@@ -36,33 +31,14 @@ function draw() {
   background(bgColour);
   document.body.style.backgroundColor = bgColour;
 
-
-
-
-}
-
-
-function reCenterText() {
-
-  for (let i = 0; i < targetText.length; i++) {
-
-    let xPos = windowWidth / 2 - textWidth(targetText) / 2;
-    letters[i].originalX = xPos + textWidth(targetText.substring(0, i)) + textWidth(targetText[i]) / 2;
-
-    letters[i].originalY = height / 2;
-
-  }
+  orbitControl();
+  model(objectModel);
 
 }
 
 
 
-function windowResized() {
-  windowWidth = window.innerWidth;
-  windowHeight = window.innerHeight;
-  resizeCanvas(windowWidth, windowHeight);
-  reCenterText();
-}
+
 
 
 

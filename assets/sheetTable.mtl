@@ -1,0 +1,23 @@
+# Blender 4.4.0 MTL File: 'sheetTable.blend'
+# www.blender.org
+
+newmtl Metal
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+
+newmtl Plastic_Blue_16
+Ka 0.372727 0.372727 0.372727
+Kd 0.080000 0.080000 0.080000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Ns -s 20 20 20 C:/plastic-smudge-smoothness copy.jpg
+map_Bump -s 20 20 20 -bm 1.000000 C:/plastic-texture-normal-1.jpg
