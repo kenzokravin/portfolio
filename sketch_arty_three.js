@@ -12,8 +12,11 @@ const loader = new OBJLoader();
 const rgbeLoader = new RGBELoader();
 let scene, camera, renderer, model, container,environment;
 
+
+
 function init() {
     // Create the scene
+    
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0); // Background color
 
@@ -41,6 +44,7 @@ function init() {
     controls.maxDistance = 80;
     controls.minDistance = 1;
     controls.enablePan = false;
+    controls.enableZoom = false;
     controls.update();
 
  
@@ -94,7 +98,7 @@ function init() {
                 }
             });
     
-            model.scale.set(2, 2, 2); // Adjust scale
+            model.scale.set(3, 3, 3); // Adjust scale
             scene.add(model);
             console.log("Model loaded successfully!");
         },
@@ -127,6 +131,7 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
+    
 
     if (model) {
         model.rotation.x += 0.000;
