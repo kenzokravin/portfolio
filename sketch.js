@@ -141,7 +141,7 @@ if(textComplete == true) {
   let centerY = windowHeight / 2;
 
   text(currentText.join(""), centerX, centerY);
-  fill('orange');
+  fill("#FF291E");
 }
 
 
@@ -216,7 +216,7 @@ function checkTextForCompletion() {
         previousY: height / 2,
         rotation: 0, 
         dragging: false,
-        colour: 'orange'
+        colour: "#FF291E"
       });
     }
     textComplete = true;
