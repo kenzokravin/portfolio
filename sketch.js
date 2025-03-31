@@ -16,7 +16,7 @@ let characters = "ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz0123446789!
 let swapSpeed = 70; // Speed of letter swaps in milliseconds
 let textComplete;
 let draggingLetter = null;
-
+let yOffset = 0;
 
 let colours = ['orange', 'red','purple', 'teal','white'];
 
@@ -27,6 +27,7 @@ let lastScrollY = window.scrollY;
 let originalScrollY = window.scrollY;
 
 let jumbling;
+let jumblepause;
 let jumbleCounter = 0;
 
 let canvas;
@@ -43,6 +44,7 @@ function setup() {
   canvas.position(0,0);
   canvas.parent('js-area');
 
+  jumblepause=false;
   jumbling = false;
   bgColour = color(240);
   
@@ -63,6 +65,11 @@ function setup() {
 function draw() {
   background(bgColour);
   document.body.style.backgroundColor = bgColour;
+
+
+
+
+
 
   let textSizeValue = min(windowWidth, windowHeight) * 0.08; 
   textSize(textSizeValue);
@@ -85,12 +92,11 @@ if(textComplete == true) {
       
     if (d < repulsionDistance ) {
 
-      /*
-      letter.colour = colours[floor(random(0,colours.length-1))];
-      console.log(letter.colour);
-      //Can activate for colour randomization per hit.
-      */
-
+      if(!jumbling) {
+      jumbleText();
+      } else if(jumblepause){
+         unjumbleText();
+      }
       // Calculate the direction from the letter to the mouse
       let angle = atan2(letter.y - mouseY, letter.x - mouseX);
       
@@ -188,6 +194,8 @@ function swapLetters() {
 
 
       currentText[i] = randomCharacter(); // Keep swapping until it matches
+
+      currentText.y += yOffset;
     }
   }
 }
@@ -220,7 +228,11 @@ function checkTextForCompletion() {
       });
     }
     textComplete = true;
-    console.log(letters);
+    
+    
+
+    
+
   }
 
 
@@ -329,11 +341,34 @@ function jumbleText() {
 
     //console.log("lettersX: " + letters[i].targetX);
   }
- 
+  jumbling=true;
+  setTimeout(() => {
+    jumblepause=true;
+}, 5000); // 5000 milliseconds = 5 seconds
 }
 
-  jumbling = true;
 }
+
+function unjumbleText() {
+ 
+
+ 
+  for (let i = 0; i < letters.length; i++) {
+    letters[i].previousX = letters[i].x; 
+    letters[i].previousY = letters[i].y;
+
+
+    letters[i].targetX = letters[i].originalX; // Random X position
+    letters[i].targetY = letters[i].originalY;  // Random Y position
+
+  }
+
+  jumbling=false;
+  jumblepause=false;
+}
+
+
+
 
 function resetText() {
 
@@ -349,6 +384,15 @@ function resetText() {
 
   jumbleCounter = 0;
   
+}
+
+function resetSwapAnimation() {
+  swapOffsetY = random(-10, 10);  // Random vertical offset for the next swap (up or down)
+  setTimeout(() => { // Reset vertical position after animation
+    for (let i = 0; i < letters.length; i++) {
+      letters[i].y = letters[i].originalY; // Reset to original position
+    }
+  }, swapSpeed);
 }
 
 

@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
     
     <script type="importmap">
       {
@@ -46,9 +46,19 @@
   </script>
 
 
+  <div class="hero-image">
+    <img src="assets/sheetTableImages/sheetTable2Composit.png">
+   
+
+  </div>
+
+  <div>
+    
+  </div>
+
 
     <div id="js-area">
-        
+      
    </div>
 
    <section id="about-me" class="section">
@@ -58,6 +68,13 @@
   </section>
   </body>
 
-  <script type="module" src="sketch_arty_three.js"></script>
+  <!-- <script type="module" src="sketch_arty_three.js"></script> -->
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+      document.querySelector(".hero-image").classList.add("show");
+    }, 100); // Small delay to ensure the transition is noticeable
+  });
+</script>
   </html>

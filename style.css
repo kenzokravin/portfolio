@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
 
-
+  fill: rgb(240, 240, 240);
   height: 100%;
   /* margin: 0; */
   /*overflow-y: scroll; /* Enable vertical scrolling */
@@ -18,12 +18,12 @@ canvas {
 }
 
 #header {
-  position: fixed; /* Make it fixed at the top */
+  position: relative;
   top: 0;
   left: 0;
   width: 100%; /* Full width */
   background: rgba(255, 255, 255, 0.0); /* Transparent white background */
-
+  right: 0;
   text-align: center;
   color:black;
   padding: 15px;
@@ -31,18 +31,35 @@ canvas {
   /*backdrop-filter: blur(10px); /* Optional: add blur effect behind the header */
   /* -webkit-mask: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
 
+
+  transition: transform 0.4s ease-out;
+
 }
 
-#header > * {
+
+
+
+.hidden-header {
+  transform: translateY(-100%);
+  transition:  transform 0.4s ease-out;
+}
+
+
+/* #header > * {
   position: relative; /* Bring the content above the blurred background */
  /* Ensure content appears above the blurred background */
-}
+ 
+
+
+
 .header-links {
+ 
+  align-items: center;
   justify-content: center;
   text-align: left;
  padding: 5px;
   float: left;
-  margin-left: 15%;
+  margin-left: 10%;
   color:black;
   font-family: "Courier Prime", monospace;
   padding-top: 0px;
@@ -120,18 +137,22 @@ canvas {
   margin-bottom: 20px; /* Optional: adds space between sections */
 }
 
-.about-section,
+
 .works-section {
+ 
   padding: 20px;
   font-size: 1.2rem;
 }
 
+
+
 #header-logo {
   padding-top: 0px;
-  padding-left: 30px;
+  margin-left: 30px;
   float: left;
-  height: 60px;
-  width: 60px;
+  width: 60%;
+  height: auto;
+  max-width: 60px;
 
 
 }
@@ -143,8 +164,7 @@ canvas {
   filter: brightness(100) saturate(60%) invert(30%) sepia(200%) saturate(1000%) hue-rotate(-28deg);
     transition: filter 0.3s ease;
 
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+   
 }
 
 #js-area {
@@ -153,18 +173,34 @@ canvas {
 
 }
 
+.image-about-section {
+  flex: 1; /* Takes up equal space as text */
+  display: flex;
+  
+ 
+}
 
+.image-about-section img {
 
+  width: 80%; /* Adjust image size */
+  height: auto;
+}
+
+#about-me {
+  display: flex; 
+  align-items: center; /* Align text and image vertically */
+  justify-content: center; /* Center content inside section */
+  gap: 20px; /* Adds space between text and image */
+}
 
 .about-section {
-margin: auto;
-text-align: left;
-font-family: "Outfit", sans-serif;
-font-size: 36px;
-width: 700px;
-padding: 50px;
-padding-top: 5%;
-padding-left: 10%;
+  flex: 1; /* Takes up available space */
+  max-width: 50%; /* Prevents text from getting too wide */
+  padding: 50px;
+  padding-top: 5%;
+  padding-left: 5%;
+font-size: 1.2rem;
+font-family: "Courier Prime", monospace;
 
 opacity: 0; /* Initially hidden */
  transform: translateY(30px); 
@@ -174,6 +210,14 @@ transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 .about-section.show {
 opacity: 1;
 transform: translateY(0);
+text-align: left;
+
+}
+
+.about-title-text {
+  font-size: 1.8rem;
+  
+  font-family: "Outfit", sans-serif;
 }
 
 .works-section {
@@ -204,12 +248,20 @@ transform: translateY(0);
  
 }
 
+.grid-item:hover .grid-overlay-experiments {
+  opacity: 1; /* Show overlay with text */
+ 
+}
+
 .grid-item {
   transition: transform 0.3s ease;
   position: relative;
   overflow: hidden;
   aspect-ratio: 1 / 1; /* Ensures consistent sizing */
+ 
 }
+
+
 
 .grid-overlay {
   position: absolute;
@@ -229,6 +281,24 @@ transform: translateY(0);
   
 }
 
+
+.grid-overlay-experiments {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffb411; /* Dark overlay */
+  color: white;
+  font-size: 2.5vw;
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  
+}
 
 
 
@@ -278,3 +348,31 @@ transform: translateY(0);
 .footer-social img:hover {
   opacity: 0.7;
 }
+
+
+.hero-image img{
+
+  width: 50%;
+  height: 50%;
+
+
+}
+
+.hero-image {
+  margin-top: 3%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity:0; /* Initially hidden */
+ transform: translateY(25px); 
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hero-image.show {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+

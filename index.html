@@ -20,6 +20,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
   </head>
 
   <body>
@@ -41,29 +43,41 @@
 
     <section id="about-me" class="section">
       <div class="about-section">
+        <div class="about-title-text">
         I'm a designer and software developer based in Melbourne, Australia. <br><br>
+      </div>
+        
+        Graduating in 2024, I hold a Bachelor's in Industrial Design and a Bachelor's in Software Development.
+        <br><br>
+      </div>
+
+      <div class="image-about-section">
+        
+
+        <img src="assets/sheetTableImages/sheetTable2Composit.png" alt="Profile Picture">
+
       </div>
     </section>
     
     <section id="works" class="section">
       <div class="works-section">
 
-        <div class="grid-item">
+        <div class="grid-item" data-tilt data-tilt-reverse="true">
           <a href="arty.html" >
             <div class="grid-overlay">arty</div>
             <img src="assets/testImage.png" alt="Project Image Arty" class="square" />     
           </a>
         </div>
 
-        <div class="grid-item">
+        <div class="grid-item" data-tilt data-tilt-reverse="true">
           <a href="arty.html" >
             <div class="grid-overlay">angel</div>
             <img src="assets/testImage.png" alt="Image 1" class="square" />     
           </a>
         </div>
-        <div class="grid-item">
+        <div class="grid-item" data-tilt data-tilt-reverse="true">
           <a href="arty.html" >
-            <div class="grid-overlay">Arty</div>
+            <div class="grid-overlay-experiments">explorations</div>
             <img src="assets/testImage.png" alt="Image 1" class="square" />     
           </a>
         </div>
@@ -83,6 +97,9 @@
     </section>
     
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="headerScroll.js"></script>
+
   <script src="sketch.js"></script>
   <script src="eventListeners.js"></script>
 </html>
