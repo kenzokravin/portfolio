@@ -134,7 +134,7 @@ canvas {
   justify-content: center;
   width: 100%;
   display: flex; /* Default value, ensures vertical flow */
-  margin-bottom: 20px; /* Optional: adds space between sections */
+  margin-bottom: 40px; /* Optional: adds space between sections */
 }
 
 
@@ -198,7 +198,7 @@ canvas {
   max-width: 50%; /* Prevents text from getting too wide */
   padding: 50px;
   padding-top: 5%;
-  padding-left: 5%;
+  padding-left: 10%;
 font-size: 1.2rem;
 font-family: "Courier Prime", monospace;
 
@@ -301,7 +301,111 @@ text-align: left;
 }
 
 
+.explorations-default-text {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5vw;
+  color: #a5a5a5;
+  display: flex;
+  float: left;
+}
 
+.explorations-section-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.5vw;
+  color: #000000;
+}
+
+.exploration-section-box {
+  flex: 1; /* Takes up available space */
+  max-width: 80%; /* Prevents text from getting too wide */
+  padding: 50px;
+  padding-top: 5%;
+  padding-left: 5%;
+font-size: 1.2rem;
+font-family: "Courier Prime", monospace;
+
+}
+
+
+.exploration-section-box.show {
+  opacity: 1;
+  transform: translateY(0);
+  text-align: left;
+  
+  }
+
+.exploration-render-grid {
+  display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0px;
+}
+
+.exploration-render-image img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.explorations-image img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.grid-box {
+  display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0px;
+}
+
+.grid-box1 {
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  z-index:1
+}
+
+.grid-box1:hover {
+  grid-column: span 3/span 3;
+  grid-row: span 4/span 4;
+  z-index: 10; /* helps bring the expanded item on top */
+}
+
+.grid-box2 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 1;
+  grid-row-start: 4;
+}
+
+.grid-box3 {
+  grid-column: span 2 / span 2;
+  grid-row: span 2 / span 2;
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.grid-box4 {
+  grid-column: span 2 / span 2;
+  grid-row: span 3 / span 3;
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.grid-box5 {
+  grid-column: span 2 / span 2;
+  grid-row: span 5 / span 5;
+  grid-column-start: 5;
+  grid-row-start: 1;
+}
+
+.grid-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+   
 
 .footer-container {
   width:100%;
