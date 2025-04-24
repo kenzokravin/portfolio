@@ -32,14 +32,19 @@ let jumbleCounter = 0;
 
 let canvas;
 let bgColour;
+let sound;
 
 function preload() {
+
+ soundFormats('ogg', 'mp3');
  outfitFont = loadFont('assets/Outfit-Medium.ttf');
+
+ sound = loadSound('/assets/ping.mp3');
 }
 
 
 function setup() {
-  canvas = createCanvas(windowWidth = window.innerWidth, windowHeight = window.innerHeight);
+  canvas = createCanvas(windowWidth = window.innerWidth, windowHeight = (window.innerHeight));
   canvas.style('z-index','0');
   canvas.position(0,0);
   canvas.parent('js-area');
@@ -89,13 +94,20 @@ if(textComplete == true) {
     let d = dist(mouseX, mouseY, letter.x, letter.y);
     
     // If the cursor is within the repulsion distance, push the letter away
+
+    if(jumblepause){
+      unjumbleText();
+   }
+
+
       
     if (d < repulsionDistance ) {
 
+      
+
       if(!jumbling) {
+       // sound.play();
       jumbleText();
-      } else if(jumblepause){
-         unjumbleText();
       }
       // Calculate the direction from the letter to the mouse
       let angle = atan2(letter.y - mouseY, letter.x - mouseX);
@@ -344,7 +356,7 @@ function jumbleText() {
   jumbling=true;
   setTimeout(() => {
     jumblepause=true;
-}, 5000); // 5000 milliseconds = 5 seconds
+}, 3000); // 5000 milliseconds = 5 seconds
 }
 
 }
@@ -363,7 +375,9 @@ function unjumbleText() {
 
   }
 
-  jumbling=false;
+  setTimeout(() => {
+    jumbling=false;
+}, 1000); // 5000 milliseconds = 5 seconds
   jumblepause=false;
 }
 
