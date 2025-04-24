@@ -182,8 +182,45 @@ canvas {
 }
 
 
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.overlay img,
+.overlay video {
+  max-width: 90%;
+  max-height: 90%;
+  display: none;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
 .works-section {
  
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.four-section {
+
+ 
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 3fr)); /* Responsive columns */
+    gap: 16px; /* Space between images */
+    padding: 16px;
+    max-width: 1200px;
+
+  
+
   padding: 20px;
   font-size: 1.2rem;
 }
@@ -469,8 +506,8 @@ font-family: "Outfit", sans-serif;;
 
   font-family: "Outfit", sans-serif;
   font-size: 30px;
+ 
   
-  color: #000000;
 }
 
 .exploration-section-box {
@@ -480,6 +517,7 @@ font-family: "Outfit", sans-serif;;
   margin-right: 15px;
   padding-right: 10px;
   margin-bottom: 25px;
+  
 
 }
 
@@ -487,13 +525,23 @@ font-family: "Outfit", sans-serif;;
   text-decoration: none;
 }
 
+.exploration-tab a{
+  color: black;
+
+  transition: color 0.3s ease;
+  
+}
+
 .exploration-tab a:hover {
-  color: #428A71;
+  color: #FF291E;
+  
 }
 
 .exploration-tab {
+  border-radius: 5px;
   margin-left: 20px;
   margin-right: 20px;
+  fill: #000000;
 }
 
 .selected-tab {
@@ -558,8 +606,9 @@ font-family: "Outfit", sans-serif;;
   grid-template-rows: repeat(10, auto);
     gap: 5px;
     justify-content: center; */
-  padding-left: 10px;
-  padding-right: 10px;
+    padding-bottom: 45px;
+  padding-left: 45px;
+  padding-right: 45px;
     column-count: 4;
     column-gap: 10px;
     fill: #000000;
@@ -570,6 +619,12 @@ font-family: "Outfit", sans-serif;;
 
 @media (max-width: 475px) {
 
+  .exploration-render-grid {
+
+    padding-bottom: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 
   .explorations-default-text {
    
@@ -596,12 +651,19 @@ font-family: "Outfit", sans-serif;;
 }
 
 @media (max-width: 900px) and (min-width:475px) {
+
+  
+
   .exploration-render-grid {
     /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, auto));
     grid-template-rows: repeat(10, auto);
       gap: 5px;
       justify-content: center; */
+
+      padding-bottom: 40px;
+      padding-left: 36px;
+      padding-right: 36px;
   
       column-count: 3;
       column-gap: 10px;
