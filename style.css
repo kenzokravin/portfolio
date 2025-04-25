@@ -457,6 +457,8 @@ font-family: "Outfit", sans-serif;;
   max-width: 1200px;
 }
 
+
+
 .works-section img {
   width: 100%;
   height: auto;
@@ -655,84 +657,6 @@ font-family: "Outfit", sans-serif;;
 
 
 
-
-@media (max-width: 475px) {
-
-  .exploration-render-grid {
-
-    padding-bottom: 30px;
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .explorations-default-text {
-   
-    font-size: 25px;
-   
-  }
-  
-  .explorations-section-title {
-  
-    font-size: 20px;
-    padding-left: 1px;
-    padding-right: 1px;
- 
-  }
-
-  .exploration-render-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-    grid-template-rows: repeat(10, auto);
-      gap: 5px;
-      justify-content: center; */
-  
-      column-count: 1;
-      column-gap: 10px;
-  }
-}
-
-@media (max-width: 900px) and (min-width:475px) {
-
-  .explorations-section-title {
-
-    
-    padding-left: 6px;
-    padding-right: 6px;
-  
-    font-family: "Outfit", sans-serif;
-    font-size: 20px;
-   
-    
-  }
-
-  
-
-  .exploration-render-grid {
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-    grid-template-rows: repeat(10, auto);
-      gap: 5px;
-      justify-content: center; */
-
-      padding-bottom: 40px;
-      padding-left: 36px;
-      padding-right: 36px;
-  
-      column-count: 3;
-      column-gap: 10px;
-  }
-
-  .explorations-default-text {
-   
-    font-size: 30px;
-   
-  }
-  
- 
-
-}
-
-
 .grid-box {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -777,7 +701,7 @@ font-family: "Outfit", sans-serif;;
 .grid-image img,video {
    border: solid;
    border-color:black;
-    border-width: 1.5px;
+    border-width: 0px;
     border-radius: 3%;
     width:auto;
     max-width: 100%;
@@ -1085,6 +1009,236 @@ transform: translateY(0);
   }
 }
 
+@media (min-width:200px) and (max-width: 345px) {
+
+  .project-image-one {
+    margin-top: 50px;
+  }
+
+  .four-section {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .container-div {
+    margin: auto;
+
+  }
+
+  .project-brief {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    flex-direction: column;
+  }
+
+  .project-outcome {
+    margin-top: 4%;
+  }
+
+  .project-summary ul {
+    width: 95%;
+  }
+
+  .project-summary li {
+    margin-top: 3%;
+  }
+
+
+  .exploration-render-grid {
+
+    padding-bottom: 30px;
+    
+  }
+
+  .explorations-default-text {
+   
+    font-size: 25px;
+   
+  }
+
+  .exploration-section-box {
+    flex-direction: column;
+  }
+  
+  .explorations-section-title {
+  
+    font-size: 20px;
+    padding-left: 1px;
+    padding-right: 1px;
+ 
+  }
+
+  .exploration-render-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-rows: repeat(10, auto);
+      gap: 5px;
+      justify-content: center; */
+  
+      column-count: 1;
+      column-gap: 10px;
+  }
+}
+
+
+@media (min-width:345px) and (max-width: 475px) {
+
+  .project-image-one {
+    margin-top: 50px;
+  }
+
+  .four-section {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .container-div {
+    margin: auto;
+
+  }
+
+  .project-brief {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    flex-direction: column;
+  }
+
+  .project-outcome {
+    margin-top: 4%;
+  }
+
+  .project-summary ul {
+    width: 95%;
+  }
+
+  .project-summary li {
+    margin-top: 3%;
+  }
+
+  #js-area {
+    display: none;
+  }
+
+  .works-section {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: none;
+    gap: 16px; /* Space between images */
+    
+  }
+  
+  
+  
+  .works-section img {
+    width: 100%;
+    height: auto;
+   /* border-radius: 8px; /* Optional: add rounded corners */
+   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow for better visuals */
+    transition: transform 0.3s ease;
+    object-fit: cover;
+  }
+
+  .grid-overlay {
+    opacity: 1;
+    font-size: 10vw;
+  }
+
+  .grid-overlay-experiments {
+    opacity: 1;
+    font-size: 10vw;
+  }
+
+
+  .exploration-section-box {
+    flex-direction: column;
+  }
+
+
+  .container-div-explorations {
+
+    margin: 5px auto; /* top/bottom = 40px, left/right = auto (centers it) */
+    width: 100%; /* or any fixed width like 600px */
+    max-width: 1500px;
+  
+    
+  }
+
+
+  .exploration-render-grid {
+
+    padding-bottom: 30px;
+    
+   
+  }
+
+  .explorations-default-text {
+   
+    font-size: 25px;
+   
+  }
+  
+  .explorations-section-title {
+  
+    font-size: 20px;
+    padding-left: 1px;
+    padding-right: 1px;
+ 
+  }
+
+  .exploration-render-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-rows: repeat(10, auto);
+      gap: 5px;
+      justify-content: center; */
+  
+      column-count: 1;
+      column-gap: 10px;
+  }
+}
+
+@media (max-width: 900px) and (min-width:475px) {
+
+  .explorations-section-title {
+
+    
+    padding-left: 6px;
+    padding-right: 6px;
+  
+    font-family: "Outfit", sans-serif;
+    font-size: 20px;
+   
+    
+  }
+
+  
+
+  .exploration-render-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-rows: repeat(10, auto);
+      gap: 5px;
+      justify-content: center; */
+
+      padding-bottom: 40px;
+      padding-left: 36px;
+      padding-right: 36px;
+  
+      column-count: 3;
+      column-gap: 10px;
+  }
+
+  .explorations-default-text {
+   
+    font-size: 30px;
+   
+  }
+  
+ 
+
+}
 
 
 

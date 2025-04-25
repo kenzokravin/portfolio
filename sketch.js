@@ -68,6 +68,8 @@ function setup() {
 
 
 function draw() {
+  resizeCanvas(windowWidth = window.innerWidth, windowHeight = (window.innerHeight));
+
   background(bgColour);
   document.body.style.backgroundColor = bgColour;
 
