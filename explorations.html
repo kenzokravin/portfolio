@@ -62,7 +62,7 @@
    </div> -->
    
  
-
+  <div class="container-div-explorations">
 
 
 
@@ -77,6 +77,13 @@
       <div class="exploration-tab">
         <a href="javascript:void(0)" onclick="showTab(event,'sketch-tab')">
           <div class="explorations-section-title tablink ">sketches</div>
+        </a>
+
+      </div>
+
+      <div class="exploration-tab">
+        <a href="javascript:void(0)" onclick="showTab(event,'graphic-tab')">
+          <div class="explorations-section-title tablink ">graphics</div>
         </a>
 
       </div>
@@ -105,7 +112,7 @@
 
 
 
-    <div id="render-tab" class="container exploration-render-grid w3-animate-opacity">
+    <div id="render-tab" class="container exploration-render-grid w3-animate-opacity" >
      <div class="">
       <!-- <div class="exploration-section-box ">
         <img src="assets/renders_pixel.png">
@@ -119,11 +126,11 @@
 
       </div>
       <div class=" grid-image" >
-        <img src="assets/sheetTableImages/render1.png" class="zoomable">
+        <img src="assets/explorations/helmet1.png" class="zoomable">
       
       </div>
       <div class=" grid-image">
-        <img src="assets/sheetTableImages/sheetTable2Composit.png" class="zoomable"> 
+        <img src="assets/sheetTableImages/sheetTablecontext.png" class="zoomable"> 
       
       </div>
       <div class=" grid-image">
@@ -131,7 +138,7 @@
       
       </div>
       <div class="grid-image">
-        <img src="assets/sheetTableImages/render1.png"  class="zoomable">
+        <img src="assets/explorations/renderhelm.png"  class="zoomable">
       
       </div>
 
@@ -140,12 +147,12 @@
       
       </div>
       <div class="grid-image">
-        <img src="assets/sheetTableImages/sheetTable2Composit.png"  class="zoomable">
+        <img src="assets/explorations/nikehelmet1.png"  class="zoomable">
       
       </div>
 
       <div class=" grid-image">
-        <img src="assets/sheetTableImages/sheetTableContext.png"  class="zoomable">
+        <img src="assets/explorations/nikehelmet1.png"  class="zoomable">
       
       </div>
       <div class="grid-image">
@@ -170,7 +177,7 @@
 
   
 
-  <div class="container-sketches">
+  
     <div id="sketch-tab" class="exploration-render-grid w3-animate-opacity" style="display: none;">
      <div class="">
       
@@ -224,9 +231,77 @@
         <img src="assets/fishKnife/swordfish4.png">
       
       </div>
-    </div>
+    
 
   </div> 
+
+  
+  <div id="graphic-tab" class="container exploration-render-grid w3-animate-opacity" style="display: none;">
+    <div class="">
+     <!-- <div class="exploration-section-box ">
+       <img src="assets/renders_pixel.png">
+       <div class="explorations-default-text">
+         Explorations -  
+       </div>
+       <div class="explorations-section-title">
+           &nbsp;Renders
+       </div> 
+     </div> -->
+
+     
+     <div class=" grid-image" >
+       <img src="assets/sheetTableImages/render1.png" class="zoomable">
+     
+     </div>
+     <div class=" grid-image">
+       <img src="assets/sheetTableImages/sheetTable2Composit.png" class="zoomable"> 
+     
+     </div>
+     <div class=" grid-image">
+       <img src="assets/sheetTableImages/render1.png" class="zoomable">
+     
+     </div>
+     <div class="grid-image">
+       <img src="assets/sheetTableImages/render1.png"  class="zoomable">
+     
+     </div>
+
+     <div class="grid-image">
+       <img src="assets/sheetTableImages/sheetTable2Composit.png"  class="zoomable">
+     
+     </div>
+     <div class="grid-image">
+       <img src="assets/sheetTableImages/sheetTable2Composit.png"  class="zoomable">
+     
+     </div>
+
+     <div class=" grid-image">
+       <img src="assets/sheetTableImages/sheetTableContext.png"  class="zoomable">
+     
+     </div>
+     <div class="grid-image">
+       <video src="assets/sheetTableImages/sheetTableAnimated.webm" autoplay loop alt="Animated Table Design" class="zoomable">
+     
+     </div>
+     <div class="grid-image">
+       <img src="assets/fishKnife/swordfish1.png"  class="zoomable">
+     
+     </div>
+
+     <div class="grid-image">
+       <img src="assets/fishKnife/swordfish3.png"  class="zoomable">
+     
+     </div>
+
+     <div class="grid-image">
+       <img src="assets/fishKnife/swordfish4.png"  class="zoomable">
+     
+     </div>
+   </div>
+
+
+
+  </div>
   <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -260,25 +335,6 @@
 
   </script>
 
-  <!-- <script>
-    
-  const zoomables = document.querySelectorAll('.zoomable');
-  const overlay = document.getElementById('overlay');
-  const overlayImage = document.getElementById('overlay-image');
-
-  zoomables.forEach(img => {
-    img.addEventListener('click', () => {
-      overlayImage.src = img.src;
-      overlay.style.display = 'flex';
-    });
-  });
-
-  overlay.addEventListener('click', () => {
-    overlay.style.display = 'none';
-  });
-
-  </script> -->
-
 <script>
   const zoomables = document.querySelectorAll('.zoomable');
   const overlay = document.getElementById('overlay');
@@ -309,6 +365,27 @@
     overlayVideo.pause();
     overlayVideo.currentTime = 0;
   });
+</script>
+
+
+<script>
+   function onMobileNav() {
+    var h = document.getElementById('h-icon');
+
+    h.classList.remove('icn-spinner', 'rev-icn-spinner'); 
+
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      h.className = ' fa fa-bars rev-icn-spinner';
+    } else {
+      x.style.display = "block";
+      h.className += ' icn-spinner';
+    }
+
+    
+
+}
 </script>
 
 <!-- <script src="sketch_explorations.js"></script> -->

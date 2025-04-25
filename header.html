@@ -29,18 +29,44 @@
     </div>
 
 
-    
-
-
-
     <div class="header-container-icon">
       
-        <i class="fa fa-bars" aria-hidden="true"></i>
+      <a href="javascript:void(0);" class="icon" onclick="onMobileNav()">
+        <i class="fa fa-bars" id="h-icon"></i>
+      </a>
       
     </div>
 
+    
+
   </div>
+
+  <div class="topnav">
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+      <a href="#news">Works</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+    
+  </div>
+
+
 </header>
 
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+<script>
+   function onMobileNav() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+}
+</script>
 
