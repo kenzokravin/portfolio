@@ -930,6 +930,25 @@ transform: translateY(0);
 
 }
 
+.project-image-content {
+  margin-top: 0;
+  width: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.project-image-content img {
+  object-fit: cover;
+
+  max-height: 700px; 
+
+  width: 100%;
+  height: auto;
+
+}
+
 
 
 /* Style the navigation menu */
@@ -1015,7 +1034,17 @@ transform: translateY(0);
     margin-top: 50px;
   }
 
+  .project-image-content {
+    margin-top: 0px;
+
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .four-section {
+    padding-bottom: 0;
+
     gap: 10px;
     flex-direction: column;
   }
@@ -1086,6 +1115,13 @@ transform: translateY(0);
 
   .project-image-one {
     margin-top: 50px;
+  }
+
+  .project-image-content {
+    margin-top: 0px;
+    width: 100%;
+    padding-left: 20px;
+   padding-right: 20px;
   }
 
   .four-section {
