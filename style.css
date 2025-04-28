@@ -184,6 +184,13 @@ canvas {
   margin-bottom: 40px; /* Optional: adds space between sections */
 }
 
+.section-info {
+  justify-content: center;
+  width: 100%;
+  display: flex; /* Default value, ensures vertical flow */
+  margin-bottom: 40px; /* Optional: adds space between sections */
+}
+
 
 .overlay {
   position: fixed;
@@ -491,6 +498,11 @@ font-family: "Outfit", sans-serif;;
  
 }
 
+.grid-item img {
+  width: 100%;
+
+
+}
 
 
 .grid-overlay {
@@ -756,7 +768,7 @@ text-align: left;
   font-family: "Outfit", sans-serif;
 }
 
-.footer-links {
+#footer-year {
   display: flex;
   gap: 20px;
   margin-top: 10px;
@@ -1113,6 +1125,37 @@ transform: translateY(0);
 
 @media (min-width:345px) and (max-width: 475px) {
 
+  .about-summary {
+    font-size: 12px;
+  }
+
+  .about-title-text {
+    font-size: 20px;
+  }
+
+  .about-section {
+    max-width: 100%;
+
+
+  }
+
+  .image-about-section {
+    justify-content: center;
+  }
+
+  .section-info {
+    justify-content: center;
+    width: 100%;
+    display: flex; /* Default value, ensures vertical flow */
+    flex-direction: column;
+    margin-bottom: 40px; /* Optional: adds space between sections */
+  }
+
+  #about-me {
+    flex-direction: column-reverse;
+  }
+  
+
   #header {
     
   }
@@ -1164,7 +1207,7 @@ transform: translateY(0);
   .works-section {
     justify-content: center;
     display: grid;
-    grid-template-columns: none;
+    grid-template-columns: 1fr;
     gap: 16px; /* Space between images */
     
   }
@@ -1183,6 +1226,11 @@ transform: translateY(0);
   .grid-overlay {
     opacity: 1;
     font-size: 10vw;
+  }
+
+  .grid-item img {
+    width: 100%;
+    margin: 10px;
   }
 
   .grid-overlay-experiments {
