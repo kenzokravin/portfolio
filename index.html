@@ -78,20 +78,20 @@
         <div class="grid-item" >
           <a href="arty.html" >
             <div class="grid-overlay">arty</div>
-            <img src="assets/testImage.png" alt="Project Image Arty" class="square" />     
+            <img src="assets/arty/test7.png" alt="Project Image Arty" class="square" />     
           </a>
         </div>
 
         <div class="grid-item" >
           <a href="angel.html" >
             <div class="grid-overlay">angel</div>
-            <img src="assets/testImage.png" alt="Image 1" class="square" />     
+            <img src="assets/angel/wholeheadphones1.png" alt="Project Image Angel" class="square" />     
           </a>
         </div>
         <div class="grid-item" >
           <a href="explorations.html" >
             <div class="grid-overlay-experiments">explorations</div>
-            <img src="assets/testImage.png" alt="Image 1" class="square" />     
+            <img src="assets/testImage.png" alt="Explorations Image Section" class="square" />     
           </a>
         </div>
       </div>
@@ -99,19 +99,40 @@
     </div>
 
     <section id="footer" class="section">
-      <div class="footer-container">
+      <!-- <div class="footer-container">
       
         <div id="footer-year">
         
         </div>
         
         <div class="footer-social">
+
+        
+            <a href="https://www.linkedin.com/in/angus-d-mclean/">
+              <i class="fa-brands fa-linkedin fa-lg"></i>
+            </a>
+      
+            <a href="https://github.com/kenzokravin">
+              <i class="fa-brands fa-github fa-lg"></i>
+            </a>
+          
     
         </div>
-      </div>
+      </div> -->
     </section>
     
   </body>
+
+  <script>
+    // Load the header.html into the header-container div
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading header:', error));
+</script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
   <script src="headerScroll.js"></script>
 
