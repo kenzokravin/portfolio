@@ -44,9 +44,9 @@ canvas {
 
     position: relative;
     width: 100%;
-    min-height: 120px; /* or whatever height works for you */
+    min-height: 0px; /* or whatever height works for you */
     background: rgba(255, 255, 255, 0.0);
-    padding: 10px 0;
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,7 +214,7 @@ canvas {
 
 .container-div {
 
-  margin: 20px auto; /* top/bottom = 40px, left/right = auto (centers it) */
+  margin: 0 auto; /* top/bottom = 40px, left/right = auto (centers it) */
   width: 100%; /* or any fixed width like 600px */
   max-width: 1200px;
 
@@ -931,7 +931,7 @@ transform: translateY(0);
 }
 
 .project-image-content {
-  margin-top: 0;
+  margin-top: 20px;
   width: 100%;
   display: flex;
     justify-content: center;
@@ -1113,6 +1113,10 @@ transform: translateY(0);
 
 @media (min-width:345px) and (max-width: 475px) {
 
+  #header {
+    
+  }
+
   .project-image-one {
     margin-top: 50px;
   }
@@ -1273,6 +1277,18 @@ transform: translateY(0);
   }
   
  
+
+}
+
+
+@media (max-width: 1200px) and (min-width:475px) { 
+
+  .project-brief {
+    margin-left: 20px;
+    margin-right: 20px;
+    
+  }
+
 
 }
 
