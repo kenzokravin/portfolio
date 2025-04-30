@@ -84,6 +84,9 @@ function draw() {
 
 if(textComplete == true) {
 
+  const el = document.getElementById('scroll-prompt-id');
+      el.classList.remove('hidden');
+
     if(draggingLetter && draggingLetter.dragging == false) {
  //   moveBackToPosition();
     }

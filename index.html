@@ -39,6 +39,13 @@
             .catch(error => console.error('Error loading header:', error));
     </script>
 
+    <div class="scroll-prompt hidden" id="scroll-prompt-id">
+      <div class="scroll-prompt-shape">
+        SCROLL
+      </div>
+
+    </div>
+
 <div class="container-div">
 
     <div id="js-area">
@@ -134,10 +141,28 @@
 </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script src="headerScroll.js"></script>
+  <!-- <script src="headerScroll.js"></script> -->
+
+  <script>
+    
+    // setTimeout(() => {
+    //   const el = document.getElementById('scroll-prompt-id');
+    //   el.classList.remove('hidden');
+    // }, 2800); 
+
+
+    addEventListener("scroll", (event) => {
+
+      const el = document.getElementById('scroll-prompt-id');
+      el.classList.add('abs-hidden');
+
+    });
+
+
+  </script>
 
    <script src="sketch.js"></script>
-  <script src="eventListeners.js"></script>
+  <!-- <script src="eventListeners.js"></script> -->
 
   
 <script src="scripts.js"></script>
