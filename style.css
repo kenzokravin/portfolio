@@ -199,6 +199,7 @@ canvas {
 }
 
 .arrow-down{
+  
   z-index: 3;
   border: solid #FF291E;
   border-width: 0 10px 10px 0;
