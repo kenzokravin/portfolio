@@ -198,6 +198,10 @@ canvas {
   /* animation-delay: 1s; */
 }
 
+.image-about-section img {
+  padding: 20px;
+}
+
 .arrow-down{
   
   z-index: 3;
@@ -677,6 +681,11 @@ font-family: "Outfit", sans-serif;;
 
 .footer-social a{
   padding: 5px;
+  text-decoration: none;
+}
+
+.footer-social a:hover{
+  color: #FF291E;
 }
 
 .selected-tab {
@@ -842,6 +851,7 @@ text-align: left;
   justify-content: center;
   text-align: center;
   padding: 20px;
+  margin-bottom: 20px;
 
   color: black;
   font-family: "Outfit", sans-serif;

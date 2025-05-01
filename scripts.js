@@ -16,6 +16,8 @@ function onMobileNav() {
 
 }
 
-document.getElementById("footer-year").innerHTML = new Date().getFullYear();
+var date = new Date();
+
+document.getElementById("footer-year").innerHTML = date.getFullYear();
 
 
