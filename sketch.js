@@ -38,8 +38,6 @@ function preload() {
 
  soundFormats('ogg', 'mp3');
  outfitFont = loadFont('assets/Outfit-Medium.ttf');
-
- sound = loadSound('/assets/ping.mp3');
 }
 
 

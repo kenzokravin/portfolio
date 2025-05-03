@@ -9,6 +9,7 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+
     
     
 }
@@ -463,12 +464,12 @@ canvas {
 
 
 .image-about-section img {
-  box-sizing: none; 
+  box-sizing: none !important;
 
   width: 80%; 
   height: auto;
     padding: 20px;
-    margin-left: 30px;
+    margin-left: 40px;
 
 
   
@@ -747,7 +748,7 @@ font-family: "Outfit", sans-serif;;
 }
 
 .container {
- 
+  
   max-width: 100%;
   margin-bottom: 5%;
 
@@ -1505,7 +1506,9 @@ transform: translateY(0);
   }
 }
 
-@media (max-width: 915px) and (min-width:475px) {
+@media (max-width: 540px) and (min-width:476px) {
+
+
 
   .scroll-prompt {
     display: none;
@@ -1538,6 +1541,105 @@ transform: translateY(0);
 
   .image-about-section img {
     margin-left: 00px;
+    max-width:700px;
+  }
+
+  .section-info {
+    justify-content: center;
+    width: 100%;
+    display: flex; /* Default value, ensures vertical flow */
+    flex-direction: column-reverse;
+    margin-bottom: 40px; /* Optional: adds space between sections */
+  }
+
+
+  .works-section {
+    justify-content: center;
+    display: grid;
+   /* grid-template-columns: 2fr; */
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); 
+    gap: 16px; /* Space between images */
+
+    margin: 0 20px;
+    
+  }
+  
+
+  .explorations-section-title {
+
+    
+    padding-left: 6px;
+    padding-right: 6px;
+  
+    font-family: "Outfit", sans-serif;
+    font-size: 20px;
+   
+    
+  }
+
+  
+
+  .exploration-render-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, auto));
+    grid-template-rows: repeat(10, auto);
+      gap: 5px;
+      justify-content: center; */
+
+      padding-bottom: 40px;
+      padding-left: 36px;
+      padding-right: 36px;
+  
+      column-count: 3;
+      column-gap: 10px;
+  }
+
+  .explorations-default-text {
+   
+    font-size: 30px;
+   
+  }
+  
+ 
+
+}
+
+@media (max-width: 915px) and (min-width:541px) {
+
+
+
+  .scroll-prompt {
+    display: none;
+  }
+
+  #js-area {
+    display: none;
+  }
+
+
+  .about-summary {
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .about-title-text {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .about-section {
+    max-width: 100%;
+
+
+  }
+
+  .image-about-section {
+    justify-content: center;
+  }
+
+  .image-about-section img {
+    margin-left: 00px;
+    max-width:700px;
   }
 
   .section-info {
