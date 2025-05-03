@@ -172,17 +172,7 @@ canvas {
 
 }
 
-.about-image {
-  /* opacity: 0;
-  transform: translateY(25px); */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
 
-.about-image.show {
-  opacity: 1;
-  transform: translateY(0);
-  
-}
 
 .active-box {
 
@@ -211,9 +201,7 @@ canvas {
   /* animation-delay: 1s; */
 }
 
-.image-about-section img {
-  padding: 20px;
-}
+
 
 .arrow-down{
   
@@ -466,6 +454,10 @@ canvas {
   flex: 1; 
   display: flex;
   
+  opacity:0; 
+  transform: translateY(25px); 
+ transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
 }
  
 
@@ -474,8 +466,15 @@ canvas {
 
   width: 80%; 
   height: auto;
+    padding: 20px;
+
 
   
+}
+
+.image-about-section.show {
+  opacity: 1;
+transform: translateY(0);
 }
 
 
