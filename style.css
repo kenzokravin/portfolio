@@ -463,10 +463,12 @@ canvas {
 
 
 .image-about-section img {
+  box-sizing: none; 
 
   width: 80%; 
   height: auto;
     padding: 20px;
+    margin-left: 30px;
 
 
   
@@ -1184,7 +1186,12 @@ transform: translateY(0);
 
   .image-about-section {
     justify-content: center;
+    box-sizing: none;
     
+  }
+
+  .image-about-section img {
+    margin-left: 0px;
   }
 
   .section-info {
@@ -1348,6 +1355,10 @@ transform: translateY(0);
 
   .image-about-section {
     justify-content: center;
+  }
+
+  .image-about-section img {
+    margin-left: 00px;
   }
 
   .section-info {
@@ -1523,6 +1534,10 @@ transform: translateY(0);
 
   .image-about-section {
     justify-content: center;
+  }
+
+  .image-about-section img {
+    margin-left: 00px;
   }
 
   .section-info {
