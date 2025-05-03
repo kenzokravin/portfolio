@@ -375,6 +375,11 @@ canvas {
 
 }
 
+.header-links-box img :hover{
+  fill: #ff0707;
+
+}
+
 
 .header-container-icon {
   display: none;
@@ -439,7 +444,9 @@ canvas {
 
 .header-logo-container  img:hover{
 
-  filter: brightness(100) saturate(60%) invert(30%) sepia(200%) saturate(1000%) hue-rotate(-28deg);
+  filter: brightness(100) saturate(70%) invert(30%) sepia(200%) saturate(1000%) hue-rotate(-28deg);
+
+
     transition: filter 0.3s ease;
 
    
