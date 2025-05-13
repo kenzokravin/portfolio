@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explorations</title>
+
+    
+
+    <link rel="icon" type="image/x-icon" href="/assets/personal/image_logo.ico">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    -->
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+<body>
+  <div id="header-container"></div>
+
+   <!-- Include Three.js and Cannon-es -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.min.js"></script>
+
+<script>
+  // Scene setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+
+  // Cannon physics world setup
+  const world = new CANNON.World();
+  world.gravity.set(0, -9.82, 0); // gravity in y-axis
+
+  // Bat and ball setup in Three.js and Cannon
+  const batGeometry = new THREE.BoxGeometry(1, 0.1, 0.3);
+  const batMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  const bat = new THREE.Mesh(batGeometry, batMaterial);
+  bat.position.set(0, 1, 0);
+  scene.add(bat);
+
+  // Create a physics body for the bat
+  const batBody = new CANNON.Body({
+    mass: 1,
+    position: new CANNON.Vec3(0, 1, 0),
+  });
+  batBody.addShape(new CANNON.Box(new CANNON.Vec3(0.5, 0.05, 0.15)));
+  world.addBody(batBody);
+
+  // Ball setup in Three.js
+  const ballGeometry = new THREE.SphereGeometry(0.2);
+  const ballMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const ball = new THREE.Mesh(ballGeometry, ballMaterial);
+  ball.position.set(0, 3, 0);
+  scene.add(ball);
+
+  // Create a physics body for the ball
+  const ballBody = new CANNON.Body({
+    mass: 1,
+    position: new CANNON.Vec3(0, 3, 0),
+  });
+  ballBody.addShape(new CANNON.Sphere(0.2));
+  world.addBody(ballBody);
+
+  // Set camera position
+  camera.position.z = 5;
+
+  // Create a raycaster for detecting collision (optional)
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+
+  // Animation loop
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Update physics world
+    world.step(1 / 60);
+
+    // Sync Three.js objects with Cannon physics bodies
+    ball.position.copy(ballBody.position);
+    ball.rotation.setFromRotationMatrix(ballBody.quaternion);
+
+    bat.position.copy(batBody.position);
+    bat.rotation.setFromRotationMatrix(batBody.quaternion);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+
+
+
+
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@<v0.174.0>/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@<v0.174.0>/examples/jsm/"
+    }
+  }
+</script>
+
+  </body>
+
+  <!-- <script type="module" src="ping_pong.js"></script> -->
+
+<script src="scripts.js"></script>
+
+
+  </html>

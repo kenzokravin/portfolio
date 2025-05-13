@@ -18,6 +18,6 @@ function onMobileNav() {
 
 var date = new Date();
 
-document.getElementById("footer-year").innerHTML = date.getFullYear();
+
 
 

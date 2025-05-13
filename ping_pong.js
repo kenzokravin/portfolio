@@ -16,6 +16,8 @@ import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader.js";
 import { CustomOutlinePass } from "./CustomOutlinePass.js";
 import FindSurfaces from "./FindSurfaces.js";
 
+import {}
+
 
 const loader = new OBJLoader();
 const gltfloader = new GLTFLoader();
@@ -116,7 +118,7 @@ function init() {
         gltfloader.load('assets/SheetTable/sheetTable.gltf', function (gltf) {
             console.log("GLTF Model Loaded");
         
-             model = gltf.scene;
+            model = gltf.scene;
             model.scale.set(3, 3, 3); // Adjust scale as needed
 
             model.castShadow = true;
@@ -130,13 +132,6 @@ function init() {
 
     });
 
-    // Add lights
-    // const light = new THREE.DirectionalLight(0xffffff, .5);
-    // light.position.set(1, 1, 1).normalize();
-    // scene.add(light);
-
-    //const enviroLight = new THREE.AmbientLight( 0xffffff ,.1); // soft white light
-   // scene.add( enviroLight );
 
     console.log("materials: " + objMaterials);
 
@@ -159,24 +154,8 @@ function init() {
 
     composer.addPass(new RenderPass(scene, camera));
 
-    // const brightnessContrastPass = new ShaderPass(BrightnessContrastShader);
-    // brightnessContrastPass.uniforms["brightness"].value = .05; // Adjust brightness
-    // brightnessContrastPass.uniforms["contrast"].value = 1; // Adjust contrast
-    
-   // composer.addPass(brightnessContrastPass);
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-       
-
-
-    });
 
     
-
-
 
     animate();
 
@@ -208,32 +187,3 @@ function animate() {
 
 init();
 
-window.addEventListener('click', (event) => {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  
-    raycaster.setFromCamera(mouse, camera);
-  
-    const intersects = raycaster.intersectObjects(scene.children, true); // true = recursive
-    if (intersects.length > 0) {
-      const intersected = intersects[0].object;
-      console.log('Clicked on:', intersected.name || intersected);
-      // Do something with the intersected object (e.g., change color)
-      intersected.material.color.set(0xff0000);
-     
-
-     playSound();
-    
-      
-    }
-  });
-
-
-function playSound() {
-    if(!sound.isPlaying) {
-        sound.play();
-    } else {
-        sound.stop();
-        sound.play();
-    }
-}
